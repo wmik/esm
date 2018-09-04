@@ -1,0 +1,17 @@
+sudo: false
+language: node_js
+node_js:
+  - "8"
+  - "6"
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+script:
+  - npm run build
+  - npm test
+  - npm run coverage:check
+after_success:
+  - npm run coverage:report
+#  - npm run semantic-release

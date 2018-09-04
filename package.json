@@ -1,0 +1,68 @@
+{
+  "name": "esm",
+  "version": "0.0.0-development",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "xo && nyc ava",
+    "coverage:report": "nyc report > .nyc_output/coverage.lcov && codecov",
+    "coverage:check": "nyc check-coverage",
+    "precommit": "npm test",
+    "commit": "git-cz",
+    "clean": "rimraf dist",
+    "build": "babel src -d dist",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "author": "wmik <contact@wmik.me>",
+  "keywords": [],
+	"license": "MIT",
+	"engines": {
+		"node": ">=6"
+	},
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmik/esm.git"
+  },
+  "bugs": "https://github.com/wmik/esm/issues",
+  "xo": {
+    "extends": "xo-wmik"
+  },
+  "ava": {
+    "require": [
+      "requirable"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "nyc": {
+    "lines": 75,
+    "functions": 75,
+    "branches": 75,
+    "reporter": [
+      "text-lcov"
+    ]
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "codecov": "^3.0.4",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint-config-xo-wmik": "0.0.0",
+    "husky": "^0.14.3",
+    "nyc": "^13.0.1",
+    "requirable": "^1.0.5",
+    "rimraf": "^2.6.2",
+    "semantic-release": "^15.9.12",
+    "this": "^1.0.2",
+    "xo": "^0.22.0"
+  }
+}
